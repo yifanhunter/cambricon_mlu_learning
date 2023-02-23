@@ -1,0 +1,93 @@
+#include <bang.h>
+#define EPS 1e-7
+#define LEN 1024
+
+
+// 设备侧代码
+__mlu_entry__ void Kernel(float* dst, float* source1, float* source2) {
+  __nram__ float dest[LEN];
+  __nram__ float src1[LEN];
+  __nram__ float src2[LEN];
+  __memcpy(src1, source1, LEN * sizeof(float), GDRAM2NRAM);
+  __memcpy(src2, source2, LEN * sizeof(float), GDRAM2NRAM);
+  __bang_add(dest, src1, src2, LEN);
+  __memcpy(dst, dest, LEN * sizeof(float), NRAM2GDRAM);
+}
+
+
+int main(void) {
+
+  // 以下 1~9 都是主机侧代码
+  // 1） 通过 CNRT 接口指定设备 
+  unsigned int count = 0;
+  cnrtGetDeviceCount(&count);
+  cnrtSetDevice(0);  
+
+  // 2) 通过 CNRT 接口创建运行队列
+  cnrtQueue_t queue;
+  cnrtQueueCreate(&queue);  
+
+  // 3) 设置 kernel 的任务规模
+  cnrtDim3_t dim = {1, 1, 1};
+
+  // 4) 设置 kernel 的任务类型
+  cnrtFunctionType_t ktype = CNRT_FUNC_TYPE_BLOCK; 
+
+
+  cnrtNotifier_t start, end;
+  CNRT_CHECK(cnrtNotifierCreate(&start));
+
+
+  CNRT_CHECK(cnrtNotifierCreate(&end)); 
+
+  // 5) 主机测准备输入数据
+  // 主机侧申请输入输出内存
+  float* host_dst = (float*)malloc(LEN * sizeof(float));
+  float* host_src1 = (float*)malloc(LEN * sizeof(float));
+  float* host_src2 = (float*)malloc(LEN * sizeof(float)); 
+ for (int i = 0; i < LEN; i++) {
+    host_src1[i] = i;  host_src2[i] = i;}
+  // 设备侧申请输入输出内存
+  float* mlu_dst, * mlu_src1, * mlu_src2;
+  CNRT_CHECK(cnrtMalloc((void**)&mlu_dst, LEN * sizeof(float)));
+  CNRT_CHECK(cnrtMalloc((void**)&mlu_src1, LEN * sizeof(float)));
+  CNRT_CHECK(cnrtMalloc((void**)&mlu_src2, LEN * sizeof(float))); 
+  // 数据拷贝 host to device
+  CNRT_CHECK(cnrtMemcpy(mlu_src1, host_src1, LEN * sizeof(float),            
+                                               CNRT_MEM_TRANS_DIR_HOST2DEV));
+  CNRT_CHECK(cnrtMemcpy(mlu_src2, host_src2, LEN * sizeof(float),        
+                                               CNRT_MEM_TRANS_DIR_HOST2DEV));  CNRT_CHECK(cnrtPlaceNotifier(start, queue));
+ 
+
+  // 6) 向任务队列添加 kernel
+  Kernel<<<dim, ktype, queue>>>(mlu_dst, mlu_src1, mlu_src2);
+
+  CNRT_CHECK(cnrtPlaceNotifier(end, queue));  
+ 
+  // 7) 调用CNRT 接口等待任务队列完成
+  cnrtQueueSync(queue);
+
+  // 8) 调用 CNRT 接口拷贝数据 device to host
+  CNRT_CHECK(cnrtMemcpy(host_dst, mlu_dst, LEN * sizeof(float),   
+                                               CNRT_MEM_TRANS_DIR_DEV2HOST));
+
+  // 打印信息 
+  for (int i = 0; i < LEN; i++) {
+    if (fabsf(host_dst[i] - 2 * i) > EPS) {
+         printf("%f expected, but %f got!\n", (float)(2 * i), host_dst[i]);
+    } }
+  float timeTotal;
+  CNRT_CHECK(cnrtNotifierDuration(start, end, &timeTotal));
+  printf("Total Time: %.3f ms\n", timeTotal / 1000.0); 
+
+  // 9) 释放设备信息：任务队列，设备侧内存，主机侧内存
+  CNRT_CHECK(cnrtQueueDestroy(queue));
+  cnrtFree(mlu_dst);
+  cnrtFree(mlu_src1);
+  cnrtFree(mlu_src2);
+  free(host_dst);  
+  free(host_src1);  
+  free(host_src2);
+  return 0; 
+}
+

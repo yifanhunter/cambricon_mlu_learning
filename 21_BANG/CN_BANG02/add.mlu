@@ -1,0 +1,18 @@
+#include <mlu.h>
+#include "bang.h"
+#include "cnrt.h"
+
+#define LEN 1024
+__mlu_entry__ void Kernel(float* dst, float* source1, float* source2) {
+    __nram__ float dest[LEN];
+    __nram__ float src1[LEN];
+    __nram__ float src2[LEN];
+    __memcpy(src1, source1, LEN * sizeof(float), GDRAM2NRAM);
+    __memcpy(src2, source2, LEN * sizeof(float), GDRAM2NRAM);
+    __bang_add(dest, src1, src2, LEN);
+    __memcpy(dst, dest, LEN * sizeof(float), NRAM2GDRAM);
+}
+
+void hostKernel(float* dst, float* source1, float* source2,cnrtDim3_t dim,cnrtFunctionType_t type, cnrtQueue_t queue) {
+    Kernel<<<dim,type,queue>>>(dst,source1,source2);
+}

@@ -1,0 +1,4 @@
+tensorflow_serving_api==2
+pillow
+opencv-python
+pycocotools

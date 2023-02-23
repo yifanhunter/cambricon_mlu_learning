@@ -1,0 +1,847 @@
+graph(%self.1 : __torch__.torchvision.models.resnet.ResNet,
+      %input.38 : Tensor):
+  %42 : int = prim::Constant[value=1]() # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:214:0
+  %43 : int = prim::Constant[value=-1]() # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:214:0
+  %3 : __torch__.torch.nn.modules.linear.Linear = prim::GetAttr[name="fc"](%self.1)
+  %5 : __torch__.torch.nn.modules.pooling.AdaptiveAvgPool2d = prim::GetAttr[name="avgpool"](%self.1)
+  %7 : __torch__.torch.nn.modules.container.___torch_mangle_141.Sequential = prim::GetAttr[name="layer4"](%self.1)
+  %9 : __torch__.torch.nn.modules.container.___torch_mangle_113.Sequential = prim::GetAttr[name="layer3"](%self.1)
+  %11 : __torch__.torch.nn.modules.container.___torch_mangle_61.Sequential = prim::GetAttr[name="layer2"](%self.1)
+  %13 : __torch__.torch.nn.modules.container.___torch_mangle_25.Sequential = prim::GetAttr[name="layer1"](%self.1)
+  %15 : __torch__.torch.nn.modules.pooling.MaxPool2d = prim::GetAttr[name="maxpool"](%self.1)
+  %17 : __torch__.torch.nn.modules.activation.ReLU = prim::GetAttr[name="relu"](%self.1)
+  %19 : __torch__.torch.nn.modules.batchnorm.BatchNorm2d = prim::GetAttr[name="bn1"](%self.1)
+  %21 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="conv1"](%self.1)
+  %57 : int = prim::Constant[value=0]() # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %58 : int = prim::Constant[value=1]() # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %59 : int = prim::Constant[value=3]() # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %60 : int = prim::Constant[value=2]() # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %61 : None = prim::Constant() # :0:0
+  %62 : bool = prim::Constant[value=0]() # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %63 : bool = prim::Constant[value=1]() # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %64 : Tensor = prim::GetAttr[name="weight"](%21)
+  %65 : int[] = prim::ListConstruct(%60, %60)
+  %66 : int[] = prim::ListConstruct(%59, %59)
+  %67 : int[] = prim::ListConstruct(%58, %58)
+  %68 : int[] = prim::ListConstruct(%57, %57)
+  %input0.1 : Tensor = aten::_convolution(%input.38, %64, %61, %65, %66, %67, %62, %68, %58, %62, %62, %63) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %70 : float = prim::Constant[value=1.0000000000000001e-05]() # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %71 : float = prim::Constant[value=0.10000000000000001]() # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %72 : bool = prim::Constant[value=0]() # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %73 : bool = prim::Constant[value=1]() # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %74 : Tensor = prim::GetAttr[name="running_var"](%19)
+  %75 : Tensor = prim::GetAttr[name="running_mean"](%19)
+  %76 : Tensor = prim::GetAttr[name="bias"](%19)
+  %77 : Tensor = prim::GetAttr[name="weight"](%19)
+  %input.77 : Tensor = aten::batch_norm(%input0.1, %77, %76, %75, %74, %72, %71, %70, %73) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %79 : Tensor = aten::relu_(%input.77) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %80 : int = prim::Constant[value=1]() # /usr/lib/python3.7/site-packages/torch/nn/functional.py:576:0
+  %81 : int = prim::Constant[value=2]() # /usr/lib/python3.7/site-packages/torch/nn/functional.py:576:0
+  %82 : int = prim::Constant[value=3]() # /usr/lib/python3.7/site-packages/torch/nn/functional.py:576:0
+  %83 : bool = prim::Constant[value=0]() # /usr/lib/python3.7/site-packages/torch/nn/functional.py:576:0
+  %84 : int[] = prim::ListConstruct(%82, %82)
+  %85 : int[] = prim::ListConstruct(%81, %81)
+  %86 : int[] = prim::ListConstruct(%80, %80)
+  %87 : int[] = prim::ListConstruct(%80, %80)
+  %input.78 : Tensor = aten::max_pool2d(%79, %84, %85, %86, %87, %83) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:576:0
+  %89 : int = prim::Constant[value=1]() # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:118:0
+  %90 : int = prim::Constant[value=0]() # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %91 : None = prim::Constant() # :0:0
+  %92 : bool = prim::Constant[value=0]() # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %93 : bool = prim::Constant[value=1]() # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %94 : float = prim::Constant[value=1.0000000000000001e-05]() # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %95 : float = prim::Constant[value=0.10000000000000001]() # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %96 : __torch__.torchvision.models.resnet.___torch_mangle_24.Bottleneck = prim::GetAttr[name="2"](%13)
+  %97 : __torch__.torchvision.models.resnet.___torch_mangle_16.Bottleneck = prim::GetAttr[name="1"](%13)
+  %98 : __torch__.torchvision.models.resnet.Bottleneck = prim::GetAttr[name="0"](%13)
+  %99 : __torch__.torch.nn.modules.container.Sequential = prim::GetAttr[name="downsample"](%98)
+  %100 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_5.BatchNorm2d = prim::GetAttr[name="bn3"](%98)
+  %101 : __torch__.torch.nn.modules.conv.___torch_mangle_4.Conv2d = prim::GetAttr[name="conv3"](%98)
+  %102 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_3.BatchNorm2d = prim::GetAttr[name="bn2"](%98)
+  %103 : __torch__.torch.nn.modules.conv.___torch_mangle_2.Conv2d = prim::GetAttr[name="conv2"](%98)
+  %104 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_1.BatchNorm2d = prim::GetAttr[name="bn1"](%98)
+  %105 : __torch__.torch.nn.modules.conv.___torch_mangle_0.Conv2d = prim::GetAttr[name="conv1"](%98)
+  %106 : Tensor = prim::GetAttr[name="weight"](%105)
+  %107 : int[] = prim::ListConstruct(%89, %89)
+  %108 : int[] = prim::ListConstruct(%90, %90)
+  %109 : int[] = prim::ListConstruct(%89, %89)
+  %110 : int[] = prim::ListConstruct(%90, %90)
+  %input.39 : Tensor = aten::_convolution(%input.78, %106, %91, %107, %108, %109, %92, %110, %89, %92, %92, %93) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %112 : Tensor = prim::GetAttr[name="running_var"](%104)
+  %113 : Tensor = prim::GetAttr[name="running_mean"](%104)
+  %114 : Tensor = prim::GetAttr[name="bias"](%104)
+  %115 : Tensor = prim::GetAttr[name="weight"](%104)
+  %input.40 : Tensor = aten::batch_norm(%input.39, %115, %114, %113, %112, %92, %95, %94, %93) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %117 : Tensor = aten::relu_(%input.40) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %118 : Tensor = prim::GetAttr[name="weight"](%103)
+  %119 : int[] = prim::ListConstruct(%89, %89)
+  %120 : int[] = prim::ListConstruct(%89, %89)
+  %121 : int[] = prim::ListConstruct(%89, %89)
+  %122 : int[] = prim::ListConstruct(%90, %90)
+  %input.41 : Tensor = aten::_convolution(%117, %118, %91, %119, %120, %121, %92, %122, %89, %92, %92, %93) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %124 : Tensor = prim::GetAttr[name="running_var"](%102)
+  %125 : Tensor = prim::GetAttr[name="running_mean"](%102)
+  %126 : Tensor = prim::GetAttr[name="bias"](%102)
+  %127 : Tensor = prim::GetAttr[name="weight"](%102)
+  %input.67 : Tensor = aten::batch_norm(%input.41, %127, %126, %125, %124, %92, %95, %94, %93) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %129 : Tensor = aten::relu_(%input.67) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %130 : Tensor = prim::GetAttr[name="weight"](%101)
+  %131 : int[] = prim::ListConstruct(%89, %89)
+  %132 : int[] = prim::ListConstruct(%90, %90)
+  %133 : int[] = prim::ListConstruct(%89, %89)
+  %134 : int[] = prim::ListConstruct(%90, %90)
+  %input.68 : Tensor = aten::_convolution(%129, %130, %91, %131, %132, %133, %92, %134, %89, %92, %92, %93) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %136 : Tensor = prim::GetAttr[name="running_var"](%100)
+  %137 : Tensor = prim::GetAttr[name="running_mean"](%100)
+  %138 : Tensor = prim::GetAttr[name="bias"](%100)
+  %139 : Tensor = prim::GetAttr[name="weight"](%100)
+  %out.12 : Tensor = aten::batch_norm(%input.68, %139, %138, %137, %136, %92, %95, %94, %93) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %141 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_8.BatchNorm2d = prim::GetAttr[name="1"](%99)
+  %142 : __torch__.torch.nn.modules.conv.___torch_mangle_7.Conv2d = prim::GetAttr[name="0"](%99)
+  %143 : Tensor = prim::GetAttr[name="weight"](%142)
+  %144 : int[] = prim::ListConstruct(%89, %89)
+  %145 : int[] = prim::ListConstruct(%90, %90)
+  %146 : int[] = prim::ListConstruct(%89, %89)
+  %147 : int[] = prim::ListConstruct(%90, %90)
+  %input.69 : Tensor = aten::_convolution(%input.78, %143, %91, %144, %145, %146, %92, %147, %89, %92, %92, %93) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %149 : Tensor = prim::GetAttr[name="running_var"](%141)
+  %150 : Tensor = prim::GetAttr[name="running_mean"](%141)
+  %151 : Tensor = prim::GetAttr[name="bias"](%141)
+  %152 : Tensor = prim::GetAttr[name="weight"](%141)
+  %identity.2 : Tensor = aten::batch_norm(%input.69, %152, %151, %150, %149, %92, %95, %94, %93) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %input.70 : Tensor = aten::add_(%out.12, %identity.2, %89) # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:118:0
+  %155 : Tensor = aten::relu_(%input.70) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %156 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_14.BatchNorm2d = prim::GetAttr[name="bn3"](%97)
+  %157 : __torch__.torch.nn.modules.conv.___torch_mangle_13.Conv2d = prim::GetAttr[name="conv3"](%97)
+  %158 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_12.BatchNorm2d = prim::GetAttr[name="bn2"](%97)
+  %159 : __torch__.torch.nn.modules.conv.___torch_mangle_11.Conv2d = prim::GetAttr[name="conv2"](%97)
+  %160 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_10.BatchNorm2d = prim::GetAttr[name="bn1"](%97)
+  %161 : __torch__.torch.nn.modules.conv.___torch_mangle_9.Conv2d = prim::GetAttr[name="conv1"](%97)
+  %162 : Tensor = prim::GetAttr[name="weight"](%161)
+  %163 : int[] = prim::ListConstruct(%89, %89)
+  %164 : int[] = prim::ListConstruct(%90, %90)
+  %165 : int[] = prim::ListConstruct(%89, %89)
+  %166 : int[] = prim::ListConstruct(%90, %90)
+  %input.71 : Tensor = aten::_convolution(%155, %162, %91, %163, %164, %165, %92, %166, %89, %92, %92, %93) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %168 : Tensor = prim::GetAttr[name="running_var"](%160)
+  %169 : Tensor = prim::GetAttr[name="running_mean"](%160)
+  %170 : Tensor = prim::GetAttr[name="bias"](%160)
+  %171 : Tensor = prim::GetAttr[name="weight"](%160)
+  %input.72 : Tensor = aten::batch_norm(%input.71, %171, %170, %169, %168, %92, %95, %94, %93) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %173 : Tensor = aten::relu_(%input.72) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %174 : Tensor = prim::GetAttr[name="weight"](%159)
+  %175 : int[] = prim::ListConstruct(%89, %89)
+  %176 : int[] = prim::ListConstruct(%89, %89)
+  %177 : int[] = prim::ListConstruct(%89, %89)
+  %178 : int[] = prim::ListConstruct(%90, %90)
+  %input.73 : Tensor = aten::_convolution(%173, %174, %91, %175, %176, %177, %92, %178, %89, %92, %92, %93) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %180 : Tensor = prim::GetAttr[name="running_var"](%158)
+  %181 : Tensor = prim::GetAttr[name="running_mean"](%158)
+  %182 : Tensor = prim::GetAttr[name="bias"](%158)
+  %183 : Tensor = prim::GetAttr[name="weight"](%158)
+  %input.74 : Tensor = aten::batch_norm(%input.73, %183, %182, %181, %180, %92, %95, %94, %93) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %185 : Tensor = aten::relu_(%input.74) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %186 : Tensor = prim::GetAttr[name="weight"](%157)
+  %187 : int[] = prim::ListConstruct(%89, %89)
+  %188 : int[] = prim::ListConstruct(%90, %90)
+  %189 : int[] = prim::ListConstruct(%89, %89)
+  %190 : int[] = prim::ListConstruct(%90, %90)
+  %input.75 : Tensor = aten::_convolution(%185, %186, %91, %187, %188, %189, %92, %190, %89, %92, %92, %93) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %192 : Tensor = prim::GetAttr[name="running_var"](%156)
+  %193 : Tensor = prim::GetAttr[name="running_mean"](%156)
+  %194 : Tensor = prim::GetAttr[name="bias"](%156)
+  %195 : Tensor = prim::GetAttr[name="weight"](%156)
+  %out.11 : Tensor = aten::batch_norm(%input.75, %195, %194, %193, %192, %92, %95, %94, %93) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %input.76 : Tensor = aten::add_(%out.11, %155, %89) # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:118:0
+  %198 : Tensor = aten::relu_(%input.76) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %199 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_22.BatchNorm2d = prim::GetAttr[name="bn3"](%96)
+  %200 : __torch__.torch.nn.modules.conv.___torch_mangle_21.Conv2d = prim::GetAttr[name="conv3"](%96)
+  %201 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_20.BatchNorm2d = prim::GetAttr[name="bn2"](%96)
+  %202 : __torch__.torch.nn.modules.conv.___torch_mangle_19.Conv2d = prim::GetAttr[name="conv2"](%96)
+  %203 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_18.BatchNorm2d = prim::GetAttr[name="bn1"](%96)
+  %204 : __torch__.torch.nn.modules.conv.___torch_mangle_17.Conv2d = prim::GetAttr[name="conv1"](%96)
+  %205 : Tensor = prim::GetAttr[name="weight"](%204)
+  %206 : int[] = prim::ListConstruct(%89, %89)
+  %207 : int[] = prim::ListConstruct(%90, %90)
+  %208 : int[] = prim::ListConstruct(%89, %89)
+  %209 : int[] = prim::ListConstruct(%90, %90)
+  %input.42 : Tensor = aten::_convolution(%198, %205, %91, %206, %207, %208, %92, %209, %89, %92, %92, %93) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %211 : Tensor = prim::GetAttr[name="running_var"](%203)
+  %212 : Tensor = prim::GetAttr[name="running_mean"](%203)
+  %213 : Tensor = prim::GetAttr[name="bias"](%203)
+  %214 : Tensor = prim::GetAttr[name="weight"](%203)
+  %input.43 : Tensor = aten::batch_norm(%input.42, %214, %213, %212, %211, %92, %95, %94, %93) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %216 : Tensor = aten::relu_(%input.43) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %217 : Tensor = prim::GetAttr[name="weight"](%202)
+  %218 : int[] = prim::ListConstruct(%89, %89)
+  %219 : int[] = prim::ListConstruct(%89, %89)
+  %220 : int[] = prim::ListConstruct(%89, %89)
+  %221 : int[] = prim::ListConstruct(%90, %90)
+  %input.44 : Tensor = aten::_convolution(%216, %217, %91, %218, %219, %220, %92, %221, %89, %92, %92, %93) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %223 : Tensor = prim::GetAttr[name="running_var"](%201)
+  %224 : Tensor = prim::GetAttr[name="running_mean"](%201)
+  %225 : Tensor = prim::GetAttr[name="bias"](%201)
+  %226 : Tensor = prim::GetAttr[name="weight"](%201)
+  %input.45 : Tensor = aten::batch_norm(%input.44, %226, %225, %224, %223, %92, %95, %94, %93) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %228 : Tensor = aten::relu_(%input.45) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %229 : Tensor = prim::GetAttr[name="weight"](%200)
+  %230 : int[] = prim::ListConstruct(%89, %89)
+  %231 : int[] = prim::ListConstruct(%90, %90)
+  %232 : int[] = prim::ListConstruct(%89, %89)
+  %233 : int[] = prim::ListConstruct(%90, %90)
+  %input.46 : Tensor = aten::_convolution(%228, %229, %91, %230, %231, %232, %92, %233, %89, %92, %92, %93) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %235 : Tensor = prim::GetAttr[name="running_var"](%199)
+  %236 : Tensor = prim::GetAttr[name="running_mean"](%199)
+  %237 : Tensor = prim::GetAttr[name="bias"](%199)
+  %238 : Tensor = prim::GetAttr[name="weight"](%199)
+  %out.7 : Tensor = aten::batch_norm(%input.46, %238, %237, %236, %235, %92, %95, %94, %93) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %input.47 : Tensor = aten::add_(%out.7, %198, %89) # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:118:0
+  %241 : Tensor = aten::relu_(%input.47) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %242 : int = prim::Constant[value=1]() # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:118:0
+  %243 : int = prim::Constant[value=0]() # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %244 : None = prim::Constant() # :0:0
+  %245 : bool = prim::Constant[value=0]() # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %246 : bool = prim::Constant[value=1]() # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %247 : float = prim::Constant[value=1.0000000000000001e-05]() # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %248 : float = prim::Constant[value=0.10000000000000001]() # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %249 : int = prim::Constant[value=2]() # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %250 : __torch__.torchvision.models.resnet.___torch_mangle_60.Bottleneck = prim::GetAttr[name="3"](%11)
+  %251 : __torch__.torchvision.models.resnet.___torch_mangle_52.Bottleneck = prim::GetAttr[name="2"](%11)
+  %252 : __torch__.torchvision.models.resnet.___torch_mangle_44.Bottleneck = prim::GetAttr[name="1"](%11)
+  %253 : __torch__.torchvision.models.resnet.___torch_mangle_36.Bottleneck = prim::GetAttr[name="0"](%11)
+  %254 : __torch__.torch.nn.modules.container.___torch_mangle_35.Sequential = prim::GetAttr[name="downsample"](%253)
+  %255 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_31.BatchNorm2d = prim::GetAttr[name="bn3"](%253)
+  %256 : __torch__.torch.nn.modules.conv.___torch_mangle_30.Conv2d = prim::GetAttr[name="conv3"](%253)
+  %257 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_29.BatchNorm2d = prim::GetAttr[name="bn2"](%253)
+  %258 : __torch__.torch.nn.modules.conv.___torch_mangle_28.Conv2d = prim::GetAttr[name="conv2"](%253)
+  %259 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_27.BatchNorm2d = prim::GetAttr[name="bn1"](%253)
+  %260 : __torch__.torch.nn.modules.conv.___torch_mangle_26.Conv2d = prim::GetAttr[name="conv1"](%253)
+  %261 : Tensor = prim::GetAttr[name="weight"](%260)
+  %262 : int[] = prim::ListConstruct(%242, %242)
+  %263 : int[] = prim::ListConstruct(%243, %243)
+  %264 : int[] = prim::ListConstruct(%242, %242)
+  %265 : int[] = prim::ListConstruct(%243, %243)
+  %input.48 : Tensor = aten::_convolution(%241, %261, %244, %262, %263, %264, %245, %265, %242, %245, %245, %246) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %267 : Tensor = prim::GetAttr[name="running_var"](%259)
+  %268 : Tensor = prim::GetAttr[name="running_mean"](%259)
+  %269 : Tensor = prim::GetAttr[name="bias"](%259)
+  %270 : Tensor = prim::GetAttr[name="weight"](%259)
+  %input.49 : Tensor = aten::batch_norm(%input.48, %270, %269, %268, %267, %245, %248, %247, %246) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %272 : Tensor = aten::relu_(%input.49) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %273 : Tensor = prim::GetAttr[name="weight"](%258)
+  %274 : int[] = prim::ListConstruct(%249, %249)
+  %275 : int[] = prim::ListConstruct(%242, %242)
+  %276 : int[] = prim::ListConstruct(%242, %242)
+  %277 : int[] = prim::ListConstruct(%243, %243)
+  %input.50 : Tensor = aten::_convolution(%272, %273, %244, %274, %275, %276, %245, %277, %242, %245, %245, %246) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %279 : Tensor = prim::GetAttr[name="running_var"](%257)
+  %280 : Tensor = prim::GetAttr[name="running_mean"](%257)
+  %281 : Tensor = prim::GetAttr[name="bias"](%257)
+  %282 : Tensor = prim::GetAttr[name="weight"](%257)
+  %input.51 : Tensor = aten::batch_norm(%input.50, %282, %281, %280, %279, %245, %248, %247, %246) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %284 : Tensor = aten::relu_(%input.51) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %285 : Tensor = prim::GetAttr[name="weight"](%256)
+  %286 : int[] = prim::ListConstruct(%242, %242)
+  %287 : int[] = prim::ListConstruct(%243, %243)
+  %288 : int[] = prim::ListConstruct(%242, %242)
+  %289 : int[] = prim::ListConstruct(%243, %243)
+  %input.52 : Tensor = aten::_convolution(%284, %285, %244, %286, %287, %288, %245, %289, %242, %245, %245, %246) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %291 : Tensor = prim::GetAttr[name="running_var"](%255)
+  %292 : Tensor = prim::GetAttr[name="running_mean"](%255)
+  %293 : Tensor = prim::GetAttr[name="bias"](%255)
+  %294 : Tensor = prim::GetAttr[name="weight"](%255)
+  %out.8 : Tensor = aten::batch_norm(%input.52, %294, %293, %292, %291, %245, %248, %247, %246) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %296 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_34.BatchNorm2d = prim::GetAttr[name="1"](%254)
+  %297 : __torch__.torch.nn.modules.conv.___torch_mangle_33.Conv2d = prim::GetAttr[name="0"](%254)
+  %298 : Tensor = prim::GetAttr[name="weight"](%297)
+  %299 : int[] = prim::ListConstruct(%249, %249)
+  %300 : int[] = prim::ListConstruct(%243, %243)
+  %301 : int[] = prim::ListConstruct(%242, %242)
+  %302 : int[] = prim::ListConstruct(%243, %243)
+  %input.53 : Tensor = aten::_convolution(%241, %298, %244, %299, %300, %301, %245, %302, %242, %245, %245, %246) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %304 : Tensor = prim::GetAttr[name="running_var"](%296)
+  %305 : Tensor = prim::GetAttr[name="running_mean"](%296)
+  %306 : Tensor = prim::GetAttr[name="bias"](%296)
+  %307 : Tensor = prim::GetAttr[name="weight"](%296)
+  %identity.3 : Tensor = aten::batch_norm(%input.53, %307, %306, %305, %304, %245, %248, %247, %246) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %input.54 : Tensor = aten::add_(%out.8, %identity.3, %242) # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:118:0
+  %310 : Tensor = aten::relu_(%input.54) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %311 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_42.BatchNorm2d = prim::GetAttr[name="bn3"](%252)
+  %312 : __torch__.torch.nn.modules.conv.___torch_mangle_41.Conv2d = prim::GetAttr[name="conv3"](%252)
+  %313 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_40.BatchNorm2d = prim::GetAttr[name="bn2"](%252)
+  %314 : __torch__.torch.nn.modules.conv.___torch_mangle_39.Conv2d = prim::GetAttr[name="conv2"](%252)
+  %315 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_38.BatchNorm2d = prim::GetAttr[name="bn1"](%252)
+  %316 : __torch__.torch.nn.modules.conv.___torch_mangle_37.Conv2d = prim::GetAttr[name="conv1"](%252)
+  %317 : Tensor = prim::GetAttr[name="weight"](%316)
+  %318 : int[] = prim::ListConstruct(%242, %242)
+  %319 : int[] = prim::ListConstruct(%243, %243)
+  %320 : int[] = prim::ListConstruct(%242, %242)
+  %321 : int[] = prim::ListConstruct(%243, %243)
+  %input.55 : Tensor = aten::_convolution(%310, %317, %244, %318, %319, %320, %245, %321, %242, %245, %245, %246) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %323 : Tensor = prim::GetAttr[name="running_var"](%315)
+  %324 : Tensor = prim::GetAttr[name="running_mean"](%315)
+  %325 : Tensor = prim::GetAttr[name="bias"](%315)
+  %326 : Tensor = prim::GetAttr[name="weight"](%315)
+  %input.56 : Tensor = aten::batch_norm(%input.55, %326, %325, %324, %323, %245, %248, %247, %246) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %328 : Tensor = aten::relu_(%input.56) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %329 : Tensor = prim::GetAttr[name="weight"](%314)
+  %330 : int[] = prim::ListConstruct(%242, %242)
+  %331 : int[] = prim::ListConstruct(%242, %242)
+  %332 : int[] = prim::ListConstruct(%242, %242)
+  %333 : int[] = prim::ListConstruct(%243, %243)
+  %input.57 : Tensor = aten::_convolution(%328, %329, %244, %330, %331, %332, %245, %333, %242, %245, %245, %246) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %335 : Tensor = prim::GetAttr[name="running_var"](%313)
+  %336 : Tensor = prim::GetAttr[name="running_mean"](%313)
+  %337 : Tensor = prim::GetAttr[name="bias"](%313)
+  %338 : Tensor = prim::GetAttr[name="weight"](%313)
+  %input.58 : Tensor = aten::batch_norm(%input.57, %338, %337, %336, %335, %245, %248, %247, %246) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %340 : Tensor = aten::relu_(%input.58) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %341 : Tensor = prim::GetAttr[name="weight"](%312)
+  %342 : int[] = prim::ListConstruct(%242, %242)
+  %343 : int[] = prim::ListConstruct(%243, %243)
+  %344 : int[] = prim::ListConstruct(%242, %242)
+  %345 : int[] = prim::ListConstruct(%243, %243)
+  %input.59 : Tensor = aten::_convolution(%340, %341, %244, %342, %343, %344, %245, %345, %242, %245, %245, %246) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %347 : Tensor = prim::GetAttr[name="running_var"](%311)
+  %348 : Tensor = prim::GetAttr[name="running_mean"](%311)
+  %349 : Tensor = prim::GetAttr[name="bias"](%311)
+  %350 : Tensor = prim::GetAttr[name="weight"](%311)
+  %out.9 : Tensor = aten::batch_norm(%input.59, %350, %349, %348, %347, %245, %248, %247, %246) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %input.60 : Tensor = aten::add_(%out.9, %310, %242) # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:118:0
+  %353 : Tensor = aten::relu_(%input.60) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %354 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_50.BatchNorm2d = prim::GetAttr[name="bn3"](%251)
+  %355 : __torch__.torch.nn.modules.conv.___torch_mangle_49.Conv2d = prim::GetAttr[name="conv3"](%251)
+  %356 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_48.BatchNorm2d = prim::GetAttr[name="bn2"](%251)
+  %357 : __torch__.torch.nn.modules.conv.___torch_mangle_47.Conv2d = prim::GetAttr[name="conv2"](%251)
+  %358 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_46.BatchNorm2d = prim::GetAttr[name="bn1"](%251)
+  %359 : __torch__.torch.nn.modules.conv.___torch_mangle_45.Conv2d = prim::GetAttr[name="conv1"](%251)
+  %360 : Tensor = prim::GetAttr[name="weight"](%359)
+  %361 : int[] = prim::ListConstruct(%242, %242)
+  %362 : int[] = prim::ListConstruct(%243, %243)
+  %363 : int[] = prim::ListConstruct(%242, %242)
+  %364 : int[] = prim::ListConstruct(%243, %243)
+  %input.61 : Tensor = aten::_convolution(%353, %360, %244, %361, %362, %363, %245, %364, %242, %245, %245, %246) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %366 : Tensor = prim::GetAttr[name="running_var"](%358)
+  %367 : Tensor = prim::GetAttr[name="running_mean"](%358)
+  %368 : Tensor = prim::GetAttr[name="bias"](%358)
+  %369 : Tensor = prim::GetAttr[name="weight"](%358)
+  %input.62 : Tensor = aten::batch_norm(%input.61, %369, %368, %367, %366, %245, %248, %247, %246) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %371 : Tensor = aten::relu_(%input.62) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %372 : Tensor = prim::GetAttr[name="weight"](%357)
+  %373 : int[] = prim::ListConstruct(%242, %242)
+  %374 : int[] = prim::ListConstruct(%242, %242)
+  %375 : int[] = prim::ListConstruct(%242, %242)
+  %376 : int[] = prim::ListConstruct(%243, %243)
+  %input.63 : Tensor = aten::_convolution(%371, %372, %244, %373, %374, %375, %245, %376, %242, %245, %245, %246) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %378 : Tensor = prim::GetAttr[name="running_var"](%356)
+  %379 : Tensor = prim::GetAttr[name="running_mean"](%356)
+  %380 : Tensor = prim::GetAttr[name="bias"](%356)
+  %381 : Tensor = prim::GetAttr[name="weight"](%356)
+  %input.64 : Tensor = aten::batch_norm(%input.63, %381, %380, %379, %378, %245, %248, %247, %246) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %383 : Tensor = aten::relu_(%input.64) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %384 : Tensor = prim::GetAttr[name="weight"](%355)
+  %385 : int[] = prim::ListConstruct(%242, %242)
+  %386 : int[] = prim::ListConstruct(%243, %243)
+  %387 : int[] = prim::ListConstruct(%242, %242)
+  %388 : int[] = prim::ListConstruct(%243, %243)
+  %input.65 : Tensor = aten::_convolution(%383, %384, %244, %385, %386, %387, %245, %388, %242, %245, %245, %246) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %390 : Tensor = prim::GetAttr[name="running_var"](%354)
+  %391 : Tensor = prim::GetAttr[name="running_mean"](%354)
+  %392 : Tensor = prim::GetAttr[name="bias"](%354)
+  %393 : Tensor = prim::GetAttr[name="weight"](%354)
+  %out.10 : Tensor = aten::batch_norm(%input.65, %393, %392, %391, %390, %245, %248, %247, %246) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %input.66 : Tensor = aten::add_(%out.10, %353, %242) # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:118:0
+  %396 : Tensor = aten::relu_(%input.66) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %397 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_58.BatchNorm2d = prim::GetAttr[name="bn3"](%250)
+  %398 : __torch__.torch.nn.modules.conv.___torch_mangle_57.Conv2d = prim::GetAttr[name="conv3"](%250)
+  %399 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_56.BatchNorm2d = prim::GetAttr[name="bn2"](%250)
+  %400 : __torch__.torch.nn.modules.conv.___torch_mangle_55.Conv2d = prim::GetAttr[name="conv2"](%250)
+  %401 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_54.BatchNorm2d = prim::GetAttr[name="bn1"](%250)
+  %402 : __torch__.torch.nn.modules.conv.___torch_mangle_53.Conv2d = prim::GetAttr[name="conv1"](%250)
+  %403 : Tensor = prim::GetAttr[name="weight"](%402)
+  %404 : int[] = prim::ListConstruct(%242, %242)
+  %405 : int[] = prim::ListConstruct(%243, %243)
+  %406 : int[] = prim::ListConstruct(%242, %242)
+  %407 : int[] = prim::ListConstruct(%243, %243)
+  %input.79 : Tensor = aten::_convolution(%396, %403, %244, %404, %405, %406, %245, %407, %242, %245, %245, %246) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %409 : Tensor = prim::GetAttr[name="running_var"](%401)
+  %410 : Tensor = prim::GetAttr[name="running_mean"](%401)
+  %411 : Tensor = prim::GetAttr[name="bias"](%401)
+  %412 : Tensor = prim::GetAttr[name="weight"](%401)
+  %input.80 : Tensor = aten::batch_norm(%input.79, %412, %411, %410, %409, %245, %248, %247, %246) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %414 : Tensor = aten::relu_(%input.80) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %415 : Tensor = prim::GetAttr[name="weight"](%400)
+  %416 : int[] = prim::ListConstruct(%242, %242)
+  %417 : int[] = prim::ListConstruct(%242, %242)
+  %418 : int[] = prim::ListConstruct(%242, %242)
+  %419 : int[] = prim::ListConstruct(%243, %243)
+  %input.81 : Tensor = aten::_convolution(%414, %415, %244, %416, %417, %418, %245, %419, %242, %245, %245, %246) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %421 : Tensor = prim::GetAttr[name="running_var"](%399)
+  %422 : Tensor = prim::GetAttr[name="running_mean"](%399)
+  %423 : Tensor = prim::GetAttr[name="bias"](%399)
+  %424 : Tensor = prim::GetAttr[name="weight"](%399)
+  %input.82 : Tensor = aten::batch_norm(%input.81, %424, %423, %422, %421, %245, %248, %247, %246) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %426 : Tensor = aten::relu_(%input.82) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %427 : Tensor = prim::GetAttr[name="weight"](%398)
+  %428 : int[] = prim::ListConstruct(%242, %242)
+  %429 : int[] = prim::ListConstruct(%243, %243)
+  %430 : int[] = prim::ListConstruct(%242, %242)
+  %431 : int[] = prim::ListConstruct(%243, %243)
+  %input.83 : Tensor = aten::_convolution(%426, %427, %244, %428, %429, %430, %245, %431, %242, %245, %245, %246) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %433 : Tensor = prim::GetAttr[name="running_var"](%397)
+  %434 : Tensor = prim::GetAttr[name="running_mean"](%397)
+  %435 : Tensor = prim::GetAttr[name="bias"](%397)
+  %436 : Tensor = prim::GetAttr[name="weight"](%397)
+  %out.13 : Tensor = aten::batch_norm(%input.83, %436, %435, %434, %433, %245, %248, %247, %246) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %input.84 : Tensor = aten::add_(%out.13, %396, %242) # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:118:0
+  %439 : Tensor = aten::relu_(%input.84) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %440 : int = prim::Constant[value=1]() # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:118:0
+  %441 : int = prim::Constant[value=0]() # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %442 : None = prim::Constant() # :0:0
+  %443 : bool = prim::Constant[value=0]() # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %444 : bool = prim::Constant[value=1]() # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %445 : float = prim::Constant[value=1.0000000000000001e-05]() # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %446 : float = prim::Constant[value=0.10000000000000001]() # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %447 : int = prim::Constant[value=2]() # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %448 : __torch__.torchvision.models.resnet.___torch_mangle_112.Bottleneck = prim::GetAttr[name="5"](%9)
+  %449 : __torch__.torchvision.models.resnet.___torch_mangle_104.Bottleneck = prim::GetAttr[name="4"](%9)
+  %450 : __torch__.torchvision.models.resnet.___torch_mangle_96.Bottleneck = prim::GetAttr[name="3"](%9)
+  %451 : __torch__.torchvision.models.resnet.___torch_mangle_88.Bottleneck = prim::GetAttr[name="2"](%9)
+  %452 : __torch__.torchvision.models.resnet.___torch_mangle_80.Bottleneck = prim::GetAttr[name="1"](%9)
+  %453 : __torch__.torchvision.models.resnet.___torch_mangle_72.Bottleneck = prim::GetAttr[name="0"](%9)
+  %454 : __torch__.torch.nn.modules.container.___torch_mangle_71.Sequential = prim::GetAttr[name="downsample"](%453)
+  %455 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_67.BatchNorm2d = prim::GetAttr[name="bn3"](%453)
+  %456 : __torch__.torch.nn.modules.conv.___torch_mangle_66.Conv2d = prim::GetAttr[name="conv3"](%453)
+  %457 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_65.BatchNorm2d = prim::GetAttr[name="bn2"](%453)
+  %458 : __torch__.torch.nn.modules.conv.___torch_mangle_64.Conv2d = prim::GetAttr[name="conv2"](%453)
+  %459 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_63.BatchNorm2d = prim::GetAttr[name="bn1"](%453)
+  %460 : __torch__.torch.nn.modules.conv.___torch_mangle_62.Conv2d = prim::GetAttr[name="conv1"](%453)
+  %461 : Tensor = prim::GetAttr[name="weight"](%460)
+  %462 : int[] = prim::ListConstruct(%440, %440)
+  %463 : int[] = prim::ListConstruct(%441, %441)
+  %464 : int[] = prim::ListConstruct(%440, %440)
+  %465 : int[] = prim::ListConstruct(%441, %441)
+  %input.85 : Tensor = aten::_convolution(%439, %461, %442, %462, %463, %464, %443, %465, %440, %443, %443, %444) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %467 : Tensor = prim::GetAttr[name="running_var"](%459)
+  %468 : Tensor = prim::GetAttr[name="running_mean"](%459)
+  %469 : Tensor = prim::GetAttr[name="bias"](%459)
+  %470 : Tensor = prim::GetAttr[name="weight"](%459)
+  %input.86 : Tensor = aten::batch_norm(%input.85, %470, %469, %468, %467, %443, %446, %445, %444) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %472 : Tensor = aten::relu_(%input.86) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %473 : Tensor = prim::GetAttr[name="weight"](%458)
+  %474 : int[] = prim::ListConstruct(%447, %447)
+  %475 : int[] = prim::ListConstruct(%440, %440)
+  %476 : int[] = prim::ListConstruct(%440, %440)
+  %477 : int[] = prim::ListConstruct(%441, %441)
+  %input.87 : Tensor = aten::_convolution(%472, %473, %442, %474, %475, %476, %443, %477, %440, %443, %443, %444) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %479 : Tensor = prim::GetAttr[name="running_var"](%457)
+  %480 : Tensor = prim::GetAttr[name="running_mean"](%457)
+  %481 : Tensor = prim::GetAttr[name="bias"](%457)
+  %482 : Tensor = prim::GetAttr[name="weight"](%457)
+  %input.88 : Tensor = aten::batch_norm(%input.87, %482, %481, %480, %479, %443, %446, %445, %444) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %484 : Tensor = aten::relu_(%input.88) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %485 : Tensor = prim::GetAttr[name="weight"](%456)
+  %486 : int[] = prim::ListConstruct(%440, %440)
+  %487 : int[] = prim::ListConstruct(%441, %441)
+  %488 : int[] = prim::ListConstruct(%440, %440)
+  %489 : int[] = prim::ListConstruct(%441, %441)
+  %input.89 : Tensor = aten::_convolution(%484, %485, %442, %486, %487, %488, %443, %489, %440, %443, %443, %444) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %491 : Tensor = prim::GetAttr[name="running_var"](%455)
+  %492 : Tensor = prim::GetAttr[name="running_mean"](%455)
+  %493 : Tensor = prim::GetAttr[name="bias"](%455)
+  %494 : Tensor = prim::GetAttr[name="weight"](%455)
+  %out.14 : Tensor = aten::batch_norm(%input.89, %494, %493, %492, %491, %443, %446, %445, %444) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %496 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_70.BatchNorm2d = prim::GetAttr[name="1"](%454)
+  %497 : __torch__.torch.nn.modules.conv.___torch_mangle_69.Conv2d = prim::GetAttr[name="0"](%454)
+  %498 : Tensor = prim::GetAttr[name="weight"](%497)
+  %499 : int[] = prim::ListConstruct(%447, %447)
+  %500 : int[] = prim::ListConstruct(%441, %441)
+  %501 : int[] = prim::ListConstruct(%440, %440)
+  %502 : int[] = prim::ListConstruct(%441, %441)
+  %input.90 : Tensor = aten::_convolution(%439, %498, %442, %499, %500, %501, %443, %502, %440, %443, %443, %444) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %504 : Tensor = prim::GetAttr[name="running_var"](%496)
+  %505 : Tensor = prim::GetAttr[name="running_mean"](%496)
+  %506 : Tensor = prim::GetAttr[name="bias"](%496)
+  %507 : Tensor = prim::GetAttr[name="weight"](%496)
+  %identity.4 : Tensor = aten::batch_norm(%input.90, %507, %506, %505, %504, %443, %446, %445, %444) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %input.91 : Tensor = aten::add_(%out.14, %identity.4, %440) # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:118:0
+  %510 : Tensor = aten::relu_(%input.91) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %511 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_78.BatchNorm2d = prim::GetAttr[name="bn3"](%452)
+  %512 : __torch__.torch.nn.modules.conv.___torch_mangle_77.Conv2d = prim::GetAttr[name="conv3"](%452)
+  %513 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_76.BatchNorm2d = prim::GetAttr[name="bn2"](%452)
+  %514 : __torch__.torch.nn.modules.conv.___torch_mangle_75.Conv2d = prim::GetAttr[name="conv2"](%452)
+  %515 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_74.BatchNorm2d = prim::GetAttr[name="bn1"](%452)
+  %516 : __torch__.torch.nn.modules.conv.___torch_mangle_73.Conv2d = prim::GetAttr[name="conv1"](%452)
+  %517 : Tensor = prim::GetAttr[name="weight"](%516)
+  %518 : int[] = prim::ListConstruct(%440, %440)
+  %519 : int[] = prim::ListConstruct(%441, %441)
+  %520 : int[] = prim::ListConstruct(%440, %440)
+  %521 : int[] = prim::ListConstruct(%441, %441)
+  %input.92 : Tensor = aten::_convolution(%510, %517, %442, %518, %519, %520, %443, %521, %440, %443, %443, %444) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %523 : Tensor = prim::GetAttr[name="running_var"](%515)
+  %524 : Tensor = prim::GetAttr[name="running_mean"](%515)
+  %525 : Tensor = prim::GetAttr[name="bias"](%515)
+  %526 : Tensor = prim::GetAttr[name="weight"](%515)
+  %input.93 : Tensor = aten::batch_norm(%input.92, %526, %525, %524, %523, %443, %446, %445, %444) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %528 : Tensor = aten::relu_(%input.93) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %529 : Tensor = prim::GetAttr[name="weight"](%514)
+  %530 : int[] = prim::ListConstruct(%440, %440)
+  %531 : int[] = prim::ListConstruct(%440, %440)
+  %532 : int[] = prim::ListConstruct(%440, %440)
+  %533 : int[] = prim::ListConstruct(%441, %441)
+  %input.94 : Tensor = aten::_convolution(%528, %529, %442, %530, %531, %532, %443, %533, %440, %443, %443, %444) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %535 : Tensor = prim::GetAttr[name="running_var"](%513)
+  %536 : Tensor = prim::GetAttr[name="running_mean"](%513)
+  %537 : Tensor = prim::GetAttr[name="bias"](%513)
+  %538 : Tensor = prim::GetAttr[name="weight"](%513)
+  %input.95 : Tensor = aten::batch_norm(%input.94, %538, %537, %536, %535, %443, %446, %445, %444) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %540 : Tensor = aten::relu_(%input.95) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %541 : Tensor = prim::GetAttr[name="weight"](%512)
+  %542 : int[] = prim::ListConstruct(%440, %440)
+  %543 : int[] = prim::ListConstruct(%441, %441)
+  %544 : int[] = prim::ListConstruct(%440, %440)
+  %545 : int[] = prim::ListConstruct(%441, %441)
+  %input.96 : Tensor = aten::_convolution(%540, %541, %442, %542, %543, %544, %443, %545, %440, %443, %443, %444) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %547 : Tensor = prim::GetAttr[name="running_var"](%511)
+  %548 : Tensor = prim::GetAttr[name="running_mean"](%511)
+  %549 : Tensor = prim::GetAttr[name="bias"](%511)
+  %550 : Tensor = prim::GetAttr[name="weight"](%511)
+  %out.15 : Tensor = aten::batch_norm(%input.96, %550, %549, %548, %547, %443, %446, %445, %444) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %input.97 : Tensor = aten::add_(%out.15, %510, %440) # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:118:0
+  %553 : Tensor = aten::relu_(%input.97) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %554 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_86.BatchNorm2d = prim::GetAttr[name="bn3"](%451)
+  %555 : __torch__.torch.nn.modules.conv.___torch_mangle_85.Conv2d = prim::GetAttr[name="conv3"](%451)
+  %556 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_84.BatchNorm2d = prim::GetAttr[name="bn2"](%451)
+  %557 : __torch__.torch.nn.modules.conv.___torch_mangle_83.Conv2d = prim::GetAttr[name="conv2"](%451)
+  %558 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_82.BatchNorm2d = prim::GetAttr[name="bn1"](%451)
+  %559 : __torch__.torch.nn.modules.conv.___torch_mangle_81.Conv2d = prim::GetAttr[name="conv1"](%451)
+  %560 : Tensor = prim::GetAttr[name="weight"](%559)
+  %561 : int[] = prim::ListConstruct(%440, %440)
+  %562 : int[] = prim::ListConstruct(%441, %441)
+  %563 : int[] = prim::ListConstruct(%440, %440)
+  %564 : int[] = prim::ListConstruct(%441, %441)
+  %input.20 : Tensor = aten::_convolution(%553, %560, %442, %561, %562, %563, %443, %564, %440, %443, %443, %444) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %566 : Tensor = prim::GetAttr[name="running_var"](%558)
+  %567 : Tensor = prim::GetAttr[name="running_mean"](%558)
+  %568 : Tensor = prim::GetAttr[name="bias"](%558)
+  %569 : Tensor = prim::GetAttr[name="weight"](%558)
+  %input.21 : Tensor = aten::batch_norm(%input.20, %569, %568, %567, %566, %443, %446, %445, %444) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %571 : Tensor = aten::relu_(%input.21) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %572 : Tensor = prim::GetAttr[name="weight"](%557)
+  %573 : int[] = prim::ListConstruct(%440, %440)
+  %574 : int[] = prim::ListConstruct(%440, %440)
+  %575 : int[] = prim::ListConstruct(%440, %440)
+  %576 : int[] = prim::ListConstruct(%441, %441)
+  %input.22 : Tensor = aten::_convolution(%571, %572, %442, %573, %574, %575, %443, %576, %440, %443, %443, %444) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %578 : Tensor = prim::GetAttr[name="running_var"](%556)
+  %579 : Tensor = prim::GetAttr[name="running_mean"](%556)
+  %580 : Tensor = prim::GetAttr[name="bias"](%556)
+  %581 : Tensor = prim::GetAttr[name="weight"](%556)
+  %input.23 : Tensor = aten::batch_norm(%input.22, %581, %580, %579, %578, %443, %446, %445, %444) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %583 : Tensor = aten::relu_(%input.23) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %584 : Tensor = prim::GetAttr[name="weight"](%555)
+  %585 : int[] = prim::ListConstruct(%440, %440)
+  %586 : int[] = prim::ListConstruct(%441, %441)
+  %587 : int[] = prim::ListConstruct(%440, %440)
+  %588 : int[] = prim::ListConstruct(%441, %441)
+  %input.24 : Tensor = aten::_convolution(%583, %584, %442, %585, %586, %587, %443, %588, %440, %443, %443, %444) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %590 : Tensor = prim::GetAttr[name="running_var"](%554)
+  %591 : Tensor = prim::GetAttr[name="running_mean"](%554)
+  %592 : Tensor = prim::GetAttr[name="bias"](%554)
+  %593 : Tensor = prim::GetAttr[name="weight"](%554)
+  %out.4 : Tensor = aten::batch_norm(%input.24, %593, %592, %591, %590, %443, %446, %445, %444) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %input.25 : Tensor = aten::add_(%out.4, %553, %440) # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:118:0
+  %596 : Tensor = aten::relu_(%input.25) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %597 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_94.BatchNorm2d = prim::GetAttr[name="bn3"](%450)
+  %598 : __torch__.torch.nn.modules.conv.___torch_mangle_93.Conv2d = prim::GetAttr[name="conv3"](%450)
+  %599 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_92.BatchNorm2d = prim::GetAttr[name="bn2"](%450)
+  %600 : __torch__.torch.nn.modules.conv.___torch_mangle_91.Conv2d = prim::GetAttr[name="conv2"](%450)
+  %601 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_90.BatchNorm2d = prim::GetAttr[name="bn1"](%450)
+  %602 : __torch__.torch.nn.modules.conv.___torch_mangle_89.Conv2d = prim::GetAttr[name="conv1"](%450)
+  %603 : Tensor = prim::GetAttr[name="weight"](%602)
+  %604 : int[] = prim::ListConstruct(%440, %440)
+  %605 : int[] = prim::ListConstruct(%441, %441)
+  %606 : int[] = prim::ListConstruct(%440, %440)
+  %607 : int[] = prim::ListConstruct(%441, %441)
+  %input.26 : Tensor = aten::_convolution(%596, %603, %442, %604, %605, %606, %443, %607, %440, %443, %443, %444) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %609 : Tensor = prim::GetAttr[name="running_var"](%601)
+  %610 : Tensor = prim::GetAttr[name="running_mean"](%601)
+  %611 : Tensor = prim::GetAttr[name="bias"](%601)
+  %612 : Tensor = prim::GetAttr[name="weight"](%601)
+  %input.27 : Tensor = aten::batch_norm(%input.26, %612, %611, %610, %609, %443, %446, %445, %444) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %614 : Tensor = aten::relu_(%input.27) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %615 : Tensor = prim::GetAttr[name="weight"](%600)
+  %616 : int[] = prim::ListConstruct(%440, %440)
+  %617 : int[] = prim::ListConstruct(%440, %440)
+  %618 : int[] = prim::ListConstruct(%440, %440)
+  %619 : int[] = prim::ListConstruct(%441, %441)
+  %input.28 : Tensor = aten::_convolution(%614, %615, %442, %616, %617, %618, %443, %619, %440, %443, %443, %444) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %621 : Tensor = prim::GetAttr[name="running_var"](%599)
+  %622 : Tensor = prim::GetAttr[name="running_mean"](%599)
+  %623 : Tensor = prim::GetAttr[name="bias"](%599)
+  %624 : Tensor = prim::GetAttr[name="weight"](%599)
+  %input.29 : Tensor = aten::batch_norm(%input.28, %624, %623, %622, %621, %443, %446, %445, %444) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %626 : Tensor = aten::relu_(%input.29) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %627 : Tensor = prim::GetAttr[name="weight"](%598)
+  %628 : int[] = prim::ListConstruct(%440, %440)
+  %629 : int[] = prim::ListConstruct(%441, %441)
+  %630 : int[] = prim::ListConstruct(%440, %440)
+  %631 : int[] = prim::ListConstruct(%441, %441)
+  %input.30 : Tensor = aten::_convolution(%626, %627, %442, %628, %629, %630, %443, %631, %440, %443, %443, %444) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %633 : Tensor = prim::GetAttr[name="running_var"](%597)
+  %634 : Tensor = prim::GetAttr[name="running_mean"](%597)
+  %635 : Tensor = prim::GetAttr[name="bias"](%597)
+  %636 : Tensor = prim::GetAttr[name="weight"](%597)
+  %out.5 : Tensor = aten::batch_norm(%input.30, %636, %635, %634, %633, %443, %446, %445, %444) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %input.31 : Tensor = aten::add_(%out.5, %596, %440) # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:118:0
+  %639 : Tensor = aten::relu_(%input.31) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %640 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_102.BatchNorm2d = prim::GetAttr[name="bn3"](%449)
+  %641 : __torch__.torch.nn.modules.conv.___torch_mangle_101.Conv2d = prim::GetAttr[name="conv3"](%449)
+  %642 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_100.BatchNorm2d = prim::GetAttr[name="bn2"](%449)
+  %643 : __torch__.torch.nn.modules.conv.___torch_mangle_99.Conv2d = prim::GetAttr[name="conv2"](%449)
+  %644 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_98.BatchNorm2d = prim::GetAttr[name="bn1"](%449)
+  %645 : __torch__.torch.nn.modules.conv.___torch_mangle_97.Conv2d = prim::GetAttr[name="conv1"](%449)
+  %646 : Tensor = prim::GetAttr[name="weight"](%645)
+  %647 : int[] = prim::ListConstruct(%440, %440)
+  %648 : int[] = prim::ListConstruct(%441, %441)
+  %649 : int[] = prim::ListConstruct(%440, %440)
+  %650 : int[] = prim::ListConstruct(%441, %441)
+  %input.32 : Tensor = aten::_convolution(%639, %646, %442, %647, %648, %649, %443, %650, %440, %443, %443, %444) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %652 : Tensor = prim::GetAttr[name="running_var"](%644)
+  %653 : Tensor = prim::GetAttr[name="running_mean"](%644)
+  %654 : Tensor = prim::GetAttr[name="bias"](%644)
+  %655 : Tensor = prim::GetAttr[name="weight"](%644)
+  %input.33 : Tensor = aten::batch_norm(%input.32, %655, %654, %653, %652, %443, %446, %445, %444) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %657 : Tensor = aten::relu_(%input.33) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %658 : Tensor = prim::GetAttr[name="weight"](%643)
+  %659 : int[] = prim::ListConstruct(%440, %440)
+  %660 : int[] = prim::ListConstruct(%440, %440)
+  %661 : int[] = prim::ListConstruct(%440, %440)
+  %662 : int[] = prim::ListConstruct(%441, %441)
+  %input.34 : Tensor = aten::_convolution(%657, %658, %442, %659, %660, %661, %443, %662, %440, %443, %443, %444) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %664 : Tensor = prim::GetAttr[name="running_var"](%642)
+  %665 : Tensor = prim::GetAttr[name="running_mean"](%642)
+  %666 : Tensor = prim::GetAttr[name="bias"](%642)
+  %667 : Tensor = prim::GetAttr[name="weight"](%642)
+  %input.35 : Tensor = aten::batch_norm(%input.34, %667, %666, %665, %664, %443, %446, %445, %444) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %669 : Tensor = aten::relu_(%input.35) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %670 : Tensor = prim::GetAttr[name="weight"](%641)
+  %671 : int[] = prim::ListConstruct(%440, %440)
+  %672 : int[] = prim::ListConstruct(%441, %441)
+  %673 : int[] = prim::ListConstruct(%440, %440)
+  %674 : int[] = prim::ListConstruct(%441, %441)
+  %input.36 : Tensor = aten::_convolution(%669, %670, %442, %671, %672, %673, %443, %674, %440, %443, %443, %444) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %676 : Tensor = prim::GetAttr[name="running_var"](%640)
+  %677 : Tensor = prim::GetAttr[name="running_mean"](%640)
+  %678 : Tensor = prim::GetAttr[name="bias"](%640)
+  %679 : Tensor = prim::GetAttr[name="weight"](%640)
+  %out.6 : Tensor = aten::batch_norm(%input.36, %679, %678, %677, %676, %443, %446, %445, %444) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %input.37 : Tensor = aten::add_(%out.6, %639, %440) # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:118:0
+  %682 : Tensor = aten::relu_(%input.37) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %683 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_110.BatchNorm2d = prim::GetAttr[name="bn3"](%448)
+  %684 : __torch__.torch.nn.modules.conv.___torch_mangle_109.Conv2d = prim::GetAttr[name="conv3"](%448)
+  %685 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_108.BatchNorm2d = prim::GetAttr[name="bn2"](%448)
+  %686 : __torch__.torch.nn.modules.conv.___torch_mangle_107.Conv2d = prim::GetAttr[name="conv2"](%448)
+  %687 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_106.BatchNorm2d = prim::GetAttr[name="bn1"](%448)
+  %688 : __torch__.torch.nn.modules.conv.___torch_mangle_105.Conv2d = prim::GetAttr[name="conv1"](%448)
+  %689 : Tensor = prim::GetAttr[name="weight"](%688)
+  %690 : int[] = prim::ListConstruct(%440, %440)
+  %691 : int[] = prim::ListConstruct(%441, %441)
+  %692 : int[] = prim::ListConstruct(%440, %440)
+  %693 : int[] = prim::ListConstruct(%441, %441)
+  %input.98 : Tensor = aten::_convolution(%682, %689, %442, %690, %691, %692, %443, %693, %440, %443, %443, %444) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %695 : Tensor = prim::GetAttr[name="running_var"](%687)
+  %696 : Tensor = prim::GetAttr[name="running_mean"](%687)
+  %697 : Tensor = prim::GetAttr[name="bias"](%687)
+  %698 : Tensor = prim::GetAttr[name="weight"](%687)
+  %input.99 : Tensor = aten::batch_norm(%input.98, %698, %697, %696, %695, %443, %446, %445, %444) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %700 : Tensor = aten::relu_(%input.99) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %701 : Tensor = prim::GetAttr[name="weight"](%686)
+  %702 : int[] = prim::ListConstruct(%440, %440)
+  %703 : int[] = prim::ListConstruct(%440, %440)
+  %704 : int[] = prim::ListConstruct(%440, %440)
+  %705 : int[] = prim::ListConstruct(%441, %441)
+  %input.100 : Tensor = aten::_convolution(%700, %701, %442, %702, %703, %704, %443, %705, %440, %443, %443, %444) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %707 : Tensor = prim::GetAttr[name="running_var"](%685)
+  %708 : Tensor = prim::GetAttr[name="running_mean"](%685)
+  %709 : Tensor = prim::GetAttr[name="bias"](%685)
+  %710 : Tensor = prim::GetAttr[name="weight"](%685)
+  %input.101 : Tensor = aten::batch_norm(%input.100, %710, %709, %708, %707, %443, %446, %445, %444) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %712 : Tensor = aten::relu_(%input.101) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %713 : Tensor = prim::GetAttr[name="weight"](%684)
+  %714 : int[] = prim::ListConstruct(%440, %440)
+  %715 : int[] = prim::ListConstruct(%441, %441)
+  %716 : int[] = prim::ListConstruct(%440, %440)
+  %717 : int[] = prim::ListConstruct(%441, %441)
+  %input.102 : Tensor = aten::_convolution(%712, %713, %442, %714, %715, %716, %443, %717, %440, %443, %443, %444) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %719 : Tensor = prim::GetAttr[name="running_var"](%683)
+  %720 : Tensor = prim::GetAttr[name="running_mean"](%683)
+  %721 : Tensor = prim::GetAttr[name="bias"](%683)
+  %722 : Tensor = prim::GetAttr[name="weight"](%683)
+  %out.16 : Tensor = aten::batch_norm(%input.102, %722, %721, %720, %719, %443, %446, %445, %444) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %input.103 : Tensor = aten::add_(%out.16, %682, %440) # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:118:0
+  %725 : Tensor = aten::relu_(%input.103) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %726 : int = prim::Constant[value=1]() # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:118:0
+  %727 : int = prim::Constant[value=0]() # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %728 : None = prim::Constant() # :0:0
+  %729 : bool = prim::Constant[value=0]() # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %730 : bool = prim::Constant[value=1]() # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %731 : float = prim::Constant[value=1.0000000000000001e-05]() # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %732 : float = prim::Constant[value=0.10000000000000001]() # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %733 : int = prim::Constant[value=2]() # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %734 : __torch__.torchvision.models.resnet.___torch_mangle_140.Bottleneck = prim::GetAttr[name="2"](%7)
+  %735 : __torch__.torchvision.models.resnet.___torch_mangle_132.Bottleneck = prim::GetAttr[name="1"](%7)
+  %736 : __torch__.torchvision.models.resnet.___torch_mangle_124.Bottleneck = prim::GetAttr[name="0"](%7)
+  %737 : __torch__.torch.nn.modules.container.___torch_mangle_123.Sequential = prim::GetAttr[name="downsample"](%736)
+  %738 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_119.BatchNorm2d = prim::GetAttr[name="bn3"](%736)
+  %739 : __torch__.torch.nn.modules.conv.___torch_mangle_118.Conv2d = prim::GetAttr[name="conv3"](%736)
+  %740 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_117.BatchNorm2d = prim::GetAttr[name="bn2"](%736)
+  %741 : __torch__.torch.nn.modules.conv.___torch_mangle_116.Conv2d = prim::GetAttr[name="conv2"](%736)
+  %742 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_115.BatchNorm2d = prim::GetAttr[name="bn1"](%736)
+  %743 : __torch__.torch.nn.modules.conv.___torch_mangle_114.Conv2d = prim::GetAttr[name="conv1"](%736)
+  %744 : Tensor = prim::GetAttr[name="weight"](%743)
+  %745 : int[] = prim::ListConstruct(%726, %726)
+  %746 : int[] = prim::ListConstruct(%727, %727)
+  %747 : int[] = prim::ListConstruct(%726, %726)
+  %748 : int[] = prim::ListConstruct(%727, %727)
+  %input.8 : Tensor = aten::_convolution(%725, %744, %728, %745, %746, %747, %729, %748, %726, %729, %729, %730) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %750 : Tensor = prim::GetAttr[name="running_var"](%742)
+  %751 : Tensor = prim::GetAttr[name="running_mean"](%742)
+  %752 : Tensor = prim::GetAttr[name="bias"](%742)
+  %753 : Tensor = prim::GetAttr[name="weight"](%742)
+  %input.9 : Tensor = aten::batch_norm(%input.8, %753, %752, %751, %750, %729, %732, %731, %730) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %755 : Tensor = aten::relu_(%input.9) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %756 : Tensor = prim::GetAttr[name="weight"](%741)
+  %757 : int[] = prim::ListConstruct(%733, %733)
+  %758 : int[] = prim::ListConstruct(%726, %726)
+  %759 : int[] = prim::ListConstruct(%726, %726)
+  %760 : int[] = prim::ListConstruct(%727, %727)
+  %input.10 : Tensor = aten::_convolution(%755, %756, %728, %757, %758, %759, %729, %760, %726, %729, %729, %730) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %762 : Tensor = prim::GetAttr[name="running_var"](%740)
+  %763 : Tensor = prim::GetAttr[name="running_mean"](%740)
+  %764 : Tensor = prim::GetAttr[name="bias"](%740)
+  %765 : Tensor = prim::GetAttr[name="weight"](%740)
+  %input.11 : Tensor = aten::batch_norm(%input.10, %765, %764, %763, %762, %729, %732, %731, %730) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %767 : Tensor = aten::relu_(%input.11) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %768 : Tensor = prim::GetAttr[name="weight"](%739)
+  %769 : int[] = prim::ListConstruct(%726, %726)
+  %770 : int[] = prim::ListConstruct(%727, %727)
+  %771 : int[] = prim::ListConstruct(%726, %726)
+  %772 : int[] = prim::ListConstruct(%727, %727)
+  %input.7 : Tensor = aten::_convolution(%767, %768, %728, %769, %770, %771, %729, %772, %726, %729, %729, %730) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %774 : Tensor = prim::GetAttr[name="running_var"](%738)
+  %775 : Tensor = prim::GetAttr[name="running_mean"](%738)
+  %776 : Tensor = prim::GetAttr[name="bias"](%738)
+  %777 : Tensor = prim::GetAttr[name="weight"](%738)
+  %out.2 : Tensor = aten::batch_norm(%input.7, %777, %776, %775, %774, %729, %732, %731, %730) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %779 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_122.BatchNorm2d = prim::GetAttr[name="1"](%737)
+  %780 : __torch__.torch.nn.modules.conv.___torch_mangle_121.Conv2d = prim::GetAttr[name="0"](%737)
+  %781 : Tensor = prim::GetAttr[name="weight"](%780)
+  %782 : int[] = prim::ListConstruct(%733, %733)
+  %783 : int[] = prim::ListConstruct(%727, %727)
+  %784 : int[] = prim::ListConstruct(%726, %726)
+  %785 : int[] = prim::ListConstruct(%727, %727)
+  %input.12 : Tensor = aten::_convolution(%725, %781, %728, %782, %783, %784, %729, %785, %726, %729, %729, %730) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %787 : Tensor = prim::GetAttr[name="running_var"](%779)
+  %788 : Tensor = prim::GetAttr[name="running_mean"](%779)
+  %789 : Tensor = prim::GetAttr[name="bias"](%779)
+  %790 : Tensor = prim::GetAttr[name="weight"](%779)
+  %identity.1 : Tensor = aten::batch_norm(%input.12, %790, %789, %788, %787, %729, %732, %731, %730) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %input.13 : Tensor = aten::add_(%out.2, %identity.1, %726) # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:118:0
+  %793 : Tensor = aten::relu_(%input.13) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %794 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_130.BatchNorm2d = prim::GetAttr[name="bn3"](%735)
+  %795 : __torch__.torch.nn.modules.conv.___torch_mangle_129.Conv2d = prim::GetAttr[name="conv3"](%735)
+  %796 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_128.BatchNorm2d = prim::GetAttr[name="bn2"](%735)
+  %797 : __torch__.torch.nn.modules.conv.___torch_mangle_127.Conv2d = prim::GetAttr[name="conv2"](%735)
+  %798 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_126.BatchNorm2d = prim::GetAttr[name="bn1"](%735)
+  %799 : __torch__.torch.nn.modules.conv.___torch_mangle_125.Conv2d = prim::GetAttr[name="conv1"](%735)
+  %800 : Tensor = prim::GetAttr[name="weight"](%799)
+  %801 : int[] = prim::ListConstruct(%726, %726)
+  %802 : int[] = prim::ListConstruct(%727, %727)
+  %803 : int[] = prim::ListConstruct(%726, %726)
+  %804 : int[] = prim::ListConstruct(%727, %727)
+  %input.14 : Tensor = aten::_convolution(%793, %800, %728, %801, %802, %803, %729, %804, %726, %729, %729, %730) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %806 : Tensor = prim::GetAttr[name="running_var"](%798)
+  %807 : Tensor = prim::GetAttr[name="running_mean"](%798)
+  %808 : Tensor = prim::GetAttr[name="bias"](%798)
+  %809 : Tensor = prim::GetAttr[name="weight"](%798)
+  %input.15 : Tensor = aten::batch_norm(%input.14, %809, %808, %807, %806, %729, %732, %731, %730) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %811 : Tensor = aten::relu_(%input.15) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %812 : Tensor = prim::GetAttr[name="weight"](%797)
+  %813 : int[] = prim::ListConstruct(%726, %726)
+  %814 : int[] = prim::ListConstruct(%726, %726)
+  %815 : int[] = prim::ListConstruct(%726, %726)
+  %816 : int[] = prim::ListConstruct(%727, %727)
+  %input.16 : Tensor = aten::_convolution(%811, %812, %728, %813, %814, %815, %729, %816, %726, %729, %729, %730) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %818 : Tensor = prim::GetAttr[name="running_var"](%796)
+  %819 : Tensor = prim::GetAttr[name="running_mean"](%796)
+  %820 : Tensor = prim::GetAttr[name="bias"](%796)
+  %821 : Tensor = prim::GetAttr[name="weight"](%796)
+  %input.17 : Tensor = aten::batch_norm(%input.16, %821, %820, %819, %818, %729, %732, %731, %730) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %823 : Tensor = aten::relu_(%input.17) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %824 : Tensor = prim::GetAttr[name="weight"](%795)
+  %825 : int[] = prim::ListConstruct(%726, %726)
+  %826 : int[] = prim::ListConstruct(%727, %727)
+  %827 : int[] = prim::ListConstruct(%726, %726)
+  %828 : int[] = prim::ListConstruct(%727, %727)
+  %input.18 : Tensor = aten::_convolution(%823, %824, %728, %825, %826, %827, %729, %828, %726, %729, %729, %730) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %830 : Tensor = prim::GetAttr[name="running_var"](%794)
+  %831 : Tensor = prim::GetAttr[name="running_mean"](%794)
+  %832 : Tensor = prim::GetAttr[name="bias"](%794)
+  %833 : Tensor = prim::GetAttr[name="weight"](%794)
+  %out.3 : Tensor = aten::batch_norm(%input.18, %833, %832, %831, %830, %729, %732, %731, %730) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %input.19 : Tensor = aten::add_(%out.3, %793, %726) # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:118:0
+  %836 : Tensor = aten::relu_(%input.19) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %837 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_138.BatchNorm2d = prim::GetAttr[name="bn3"](%734)
+  %838 : __torch__.torch.nn.modules.conv.___torch_mangle_137.Conv2d = prim::GetAttr[name="conv3"](%734)
+  %839 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_136.BatchNorm2d = prim::GetAttr[name="bn2"](%734)
+  %840 : __torch__.torch.nn.modules.conv.___torch_mangle_135.Conv2d = prim::GetAttr[name="conv2"](%734)
+  %841 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_134.BatchNorm2d = prim::GetAttr[name="bn1"](%734)
+  %842 : __torch__.torch.nn.modules.conv.___torch_mangle_133.Conv2d = prim::GetAttr[name="conv1"](%734)
+  %843 : Tensor = prim::GetAttr[name="weight"](%842)
+  %844 : int[] = prim::ListConstruct(%726, %726)
+  %845 : int[] = prim::ListConstruct(%727, %727)
+  %846 : int[] = prim::ListConstruct(%726, %726)
+  %847 : int[] = prim::ListConstruct(%727, %727)
+  %input.3 : Tensor = aten::_convolution(%836, %843, %728, %844, %845, %846, %729, %847, %726, %729, %729, %730) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %849 : Tensor = prim::GetAttr[name="running_var"](%841)
+  %850 : Tensor = prim::GetAttr[name="running_mean"](%841)
+  %851 : Tensor = prim::GetAttr[name="bias"](%841)
+  %852 : Tensor = prim::GetAttr[name="weight"](%841)
+  %input.4 : Tensor = aten::batch_norm(%input.3, %852, %851, %850, %849, %729, %732, %731, %730) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %854 : Tensor = aten::relu_(%input.4) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %855 : Tensor = prim::GetAttr[name="weight"](%840)
+  %856 : int[] = prim::ListConstruct(%726, %726)
+  %857 : int[] = prim::ListConstruct(%726, %726)
+  %858 : int[] = prim::ListConstruct(%726, %726)
+  %859 : int[] = prim::ListConstruct(%727, %727)
+  %input.5 : Tensor = aten::_convolution(%854, %855, %728, %856, %857, %858, %729, %859, %726, %729, %729, %730) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %861 : Tensor = prim::GetAttr[name="running_var"](%839)
+  %862 : Tensor = prim::GetAttr[name="running_mean"](%839)
+  %863 : Tensor = prim::GetAttr[name="bias"](%839)
+  %864 : Tensor = prim::GetAttr[name="weight"](%839)
+  %input.6 : Tensor = aten::batch_norm(%input.5, %864, %863, %862, %861, %729, %732, %731, %730) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %866 : Tensor = aten::relu_(%input.6) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %867 : Tensor = prim::GetAttr[name="weight"](%838)
+  %868 : int[] = prim::ListConstruct(%726, %726)
+  %869 : int[] = prim::ListConstruct(%727, %727)
+  %870 : int[] = prim::ListConstruct(%726, %726)
+  %871 : int[] = prim::ListConstruct(%727, %727)
+  %input.1 : Tensor = aten::_convolution(%866, %867, %728, %868, %869, %870, %729, %871, %726, %729, %729, %730) # /usr/lib/python3.7/site-packages/torch/nn/modules/conv.py:416:0
+  %873 : Tensor = prim::GetAttr[name="running_var"](%837)
+  %874 : Tensor = prim::GetAttr[name="running_mean"](%837)
+  %875 : Tensor = prim::GetAttr[name="bias"](%837)
+  %876 : Tensor = prim::GetAttr[name="weight"](%837)
+  %out.1 : Tensor = aten::batch_norm(%input.1, %876, %875, %874, %873, %729, %732, %731, %730) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:2016:0
+  %input.2 : Tensor = aten::add_(%out.1, %836, %726) # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:118:0
+  %879 : Tensor = aten::relu_(%input.2) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1117:0
+  %880 : int = prim::Constant[value=1]() # /usr/lib/python3.7/site-packages/torch/nn/functional.py:926:0
+  %881 : int[] = prim::ListConstruct(%880, %880)
+  %x.1 : Tensor = aten::adaptive_avg_pool2d(%879, %881) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:926:0
+  %input0.2 : Tensor = aten::flatten(%x.1, %42, %43) # /usr/lib/python3.7/site-packages/torchvision/models/resnet.py:214:0
+  %883 : int = prim::Constant[value=1]() # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1674:0
+  %884 : Tensor = prim::GetAttr[name="bias"](%3)
+  %885 : Tensor = prim::GetAttr[name="weight"](%3)
+  %886 : Tensor = aten::t(%885) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1674:0
+  %887 : Tensor = aten::addmm(%884, %input0.2, %886, %883, %883) # /usr/lib/python3.7/site-packages/torch/nn/functional.py:1674:0
+  return (%887)

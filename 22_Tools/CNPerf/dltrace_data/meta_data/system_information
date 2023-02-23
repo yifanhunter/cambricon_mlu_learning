@@ -1,0 +1,9 @@
+{
+    "01#cpu info": "Intel(R) Xeon(R) Gold 6230R CPU @ 2.10GHz",
+    "02#number of cpus": "104 / 104 (online / possible)",
+    "03#memory info": "58.6GB / 376.5GB (free / total)",
+    "04#kernel version": "Linux 4.15.0-142-generic",
+    "05#hostname": "ybjrj1u16067",
+    "06#distro": "Ubuntu 18.04.6 LTS",
+    "07#cnperf version": "5.1.1 591f6b7"
+}

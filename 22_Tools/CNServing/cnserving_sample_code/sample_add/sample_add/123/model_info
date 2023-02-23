@@ -1,0 +1,29 @@
+input {
+  name: "main/arg-0"
+  type: "FLOAT"
+  dim {
+    size: 1
+    size: 4
+  }
+}
+input {
+  name: "main/arg-1"
+  type: "FLOAT"
+  dim {
+    size: 1
+    size: 4
+  }
+}
+output {
+  name: "main/mm.add:0"
+  type: "FLOAT"
+  dim {
+    size: 1
+    size: 4
+  }
+}
+device_type: "MLU"
+device_ids: "0"
+context_num: 1
+model_file_name: "sample_add_model"
+warmup_file_name: ""

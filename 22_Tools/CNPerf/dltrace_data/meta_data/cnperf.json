@@ -1,0 +1,713 @@
+{
+    "_comment": [
+        "This is a config file example for CNPerf."
+    ],
+    "file_list": [
+        {
+            "file_name": "^libc-.*?\\.so$|^libc\\.so.*?$",
+            "notrace": null,
+            "trace": [
+                {
+                    "func_name": "^pwritev64$"
+                },
+                {
+                    "func_name": "^read$"
+                },
+                {
+                    "func_name": "^readv$"
+                },
+                {
+                    "func_name": "^reboot$"
+                },
+                {
+                    "func_name": "^recv$"
+                },
+                {
+                    "func_name": "^recvfrom$"
+                },
+                {
+                    "func_name": "^recvmmsg$"
+                },
+                {
+                    "func_name": "^recvmsg$"
+                },
+                {
+                    "func_name": "^sched_yield$"
+                },
+                {
+                    "func_name": "^select$"
+                },
+                {
+                    "func_name": "^semctl$"
+                },
+                {
+                    "func_name": "^semget$"
+                },
+                {
+                    "func_name": "^semop$"
+                },
+                {
+                    "func_name": "^semtimedop$"
+                },
+                {
+                    "func_name": "^send$"
+                },
+                {
+                    "func_name": "^sendfile$"
+                },
+                {
+                    "func_name": "^sendfile64$"
+                },
+                {
+                    "func_name": "^sendmmsg$"
+                },
+                {
+                    "func_name": "^sendmsg$"
+                },
+                {
+                    "func_name": "^sendto$"
+                },
+                {
+                    "func_name": "^shmat$"
+                },
+                {
+                    "func_name": "^shmctl$"
+                },
+                {
+                    "func_name": "^shmdt$"
+                },
+                {
+                    "func_name": "^shmget$"
+                },
+                {
+                    "func_name": "^shutdown$"
+                },
+                {
+                    "func_name": "^sigaction$"
+                },
+                {
+                    "func_name": "^sigsuspend$"
+                },
+                {
+                    "func_name": "^sigtimedwait$"
+                },
+                {
+                    "func_name": "^sigwait$"
+                },
+                {
+                    "func_name": "^sigwaitinfo$"
+                },
+                {
+                    "func_name": "^socket$"
+                },
+                {
+                    "func_name": "^socketpair$"
+                },
+                {
+                    "func_name": "^splice$"
+                },
+                {
+                    "func_name": "^swapoff$"
+                },
+                {
+                    "func_name": "^swapon$"
+                },
+                {
+                    "func_name": "^sync$"
+                },
+                {
+                    "func_name": "^sync_file_range$"
+                },
+                {
+                    "func_name": "^syncfs$"
+                },
+                {
+                    "func_name": "^tee$"
+                },
+                {
+                    "func_name": "^truncate$"
+                },
+                {
+                    "func_name": "^umount2$"
+                },
+                {
+                    "func_name": "^unshare$"
+                },
+                {
+                    "func_name": "^uselib$"
+                },
+                {
+                    "func_name": "^vfork$"
+                },
+                {
+                    "func_name": "^vhangup$"
+                },
+                {
+                    "func_name": "^vmsplice$"
+                },
+                {
+                    "func_name": "^wait$"
+                },
+                {
+                    "func_name": "^wait3$"
+                },
+                {
+                    "func_name": "^wait4$"
+                },
+                {
+                    "func_name": "^waitid$"
+                },
+                {
+                    "func_name": "^waitpid$"
+                },
+                {
+                    "func_name": "^write$"
+                },
+                {
+                    "func_name": "^writev$"
+                },
+                {
+                    "func_name": "^fclose$"
+                },
+                {
+                    "func_name": "^fcloseall$"
+                },
+                {
+                    "func_name": "^fflush"
+                },
+                {
+                    "func_name": "^fflush_unlocked"
+                },
+                {
+                    "func_name": "^fgetc$"
+                },
+                {
+                    "func_name": "^fgetc_unlocked$"
+                },
+                {
+                    "func_name": "^fgets$"
+                },
+                {
+                    "func_name": "^fgets_unlocked$"
+                },
+                {
+                    "func_name": "^fgetwc$"
+                },
+                {
+                    "func_name": "^fgetwc_unlocked$"
+                },
+                {
+                    "func_name": "^fgetws$"
+                },
+                {
+                    "func_name": "^fgetws_unlocked$"
+                },
+                {
+                    "func_name": "^flockfile$"
+                },
+                {
+                    "func_name": "^fopen$"
+                },
+                {
+                    "func_name": "^fopen64$"
+                },
+                {
+                    "func_name": "^fputc$"
+                },
+                {
+                    "func_name": "^fputc_unlocked$"
+                },
+                {
+                    "func_name": "^fputs$"
+                },
+                {
+                    "func_name": "^fputs_unlocked$"
+                },
+                {
+                    "func_name": "^fputwc$"
+                },
+                {
+                    "func_name": "^fputwc_unlocked$"
+                },
+                {
+                    "func_name": "^fputws$"
+                },
+                {
+                    "func_name": "^fputws_unlocked$"
+                },
+                {
+                    "func_name": "^fread$"
+                },
+                {
+                    "func_name": "^fread_unlocked$"
+                },
+                {
+                    "func_name": "^freopen$"
+                },
+                {
+                    "func_name": "^freopen64$"
+                },
+                {
+                    "func_name": "^ftrylockfile$"
+                },
+                {
+                    "func_name": "^fwrite$"
+                },
+                {
+                    "func_name": "^fwrite_unlocked"
+                },
+                {
+                    "func_name": "^getc$"
+                },
+                {
+                    "func_name": "^_IO_getc$"
+                },
+                {
+                    "func_name": "^getc_unlocked$"
+                },
+                {
+                    "func_name": "^getdelim$"
+                },
+                {
+                    "func_name": "^getline$"
+                },
+                {
+                    "func_name": "^getw$"
+                },
+                {
+                    "func_name": "^getwc$"
+                },
+                {
+                    "func_name": "^getwc_unlocked$"
+                },
+                {
+                    "func_name": "^lockf$"
+                },
+                {
+                    "func_name": "^lockf64$"
+                },
+                {
+                    "func_name": "^mkfifo$"
+                },
+                {
+                    "func_name": "^mkfifoat$"
+                },
+                {
+                    "func_name": "^posix_fallocate$"
+                },
+                {
+                    "func_name": "^posix_fallocate64$"
+                },
+                {
+                    "func_name": "^putc$"
+                },
+                {
+                    "func_name": "^_IO_putc$"
+                },
+                {
+                    "func_name": "^putc_unlocked$"
+                },
+                {
+                    "func_name": "^putwc$"
+                },
+                {
+                    "func_name": "^putwc_unlocked$"
+                },
+                {
+                    "func_name": "^popen$"
+                },
+                {
+                    "func_name": "^posix_spawn$"
+                },
+                {
+                    "func_name": "^posix_spawnp$"
+                },
+                {
+                    "func_name": "^sleep$"
+                },
+                {
+                    "func_name": "^nanosleep$"
+                },
+                {
+                    "func_name": "^sysctl$"
+                },
+                {
+                    "func_name": "^_sysctl$"
+                },
+                {
+                    "func_name": "^__sysctl$"
+                },
+                {
+                    "func_name": "^usleep$"
+                }
+            ]
+        },
+        {
+            "file_name": "^libpthread.*",
+            "notrace": null,
+            "trace": [
+                {
+                    "func_name": "^nanosleep$"
+                }
+            ]
+        },
+        {
+            "file_name": "^librt.*",
+            "notrace": null,
+            "trace": [
+                {
+                    "func_name": "^aio_fsync$"
+                },
+                {
+                    "func_name": "^aio_fsync64$"
+                },
+                {
+                    "func_name": "^aio_suspend$"
+                },
+                {
+                    "func_name": "^aio_suspend64$"
+                }
+            ]
+        },
+        {
+            "file_name": "^libutil.*",
+            "notrace": null,
+            "trace": [
+                {
+                    "func_name": "^forkpty$"
+                }
+            ]
+        },
+        {
+            "file_name": "cambricon apis",
+            "notrace": [
+                {
+                    "func_name": "cnCtxGetApiVersion"
+                },
+                {
+                    "func_name": "cnCtxGetConfig"
+                },
+                {
+                    "func_name": "cnCtxGetCurrent"
+                },
+                {
+                    "func_name": "cnCtxGetDevice"
+                },
+                {
+                    "func_name": "cnCtxGetFlags"
+                },
+                {
+                    "func_name": "cnCtxGetQueuePriorityRange"
+                },
+                {
+                    "func_name": "cnCtxSetConfig"
+                },
+                {
+                    "func_name": "cnCtxSetCurrent"
+                },
+                {
+                    "func_name": "cnDeviceCanPeerAble"
+                },
+                {
+                    "func_name": "cnDeviceGet"
+                },
+                {
+                    "func_name": "cnDeviceGetByPCIBusId"
+                },
+                {
+                    "func_name": "cnDeviceGetCount"
+                },
+                {
+                    "func_name": "cnDeviceGetName"
+                },
+                {
+                    "func_name": "cnDeviceGetPCIBusId"
+                },
+                {
+                    "func_name": "cnDeviceTotalMem"
+                },
+                {
+                    "func_name": "cnDriverGetVersion"
+                },
+                {
+                    "func_name": "cnGetCtxConfigParam"
+                },
+                {
+                    "func_name": "cnGetDriverVersion"
+                },
+                {
+                    "func_name": "cnGetErrorName"
+                },
+                {
+                    "func_name": "cnGetErrorString"
+                },
+                {
+                    "func_name": "cnGetLibVersion"
+                },
+                {
+                    "func_name": "cnGetMemAttribute"
+                },
+                {
+                    "func_name": "cnGetMemAttributes"
+                },
+                {
+                    "func_name": "cnMemGetInfo"
+                },
+                {
+                    "func_name": "cnMemGetNodeInfo"
+                },
+                {
+                    "func_name": "cnQueueGetContext"
+                },
+                {
+                    "func_name": "cnSetCtxConfigParam"
+                },
+                {
+                    "func_name": "cnSharedContextGetState"
+                },
+                {
+                    "func_name": "cnSharedContextSetFlags"
+                },
+                {
+                    "func_name": "cnnlCreateTensorDescriptor"
+                },
+                {
+                    "func_name": "cnnlDestroyTensorDescriptor"
+                },
+                {
+                    "func_name": "cnnlGetTensorDescriptor"
+                },
+                {
+                    "func_name": "cnnlGetTensorDescriptorEx"
+                },
+                {
+                    "func_name": "cnnlGetTensorDescriptorPosition"
+                },
+                {
+                    "func_name": "cnnlGetTensorDescriptorPositionAndScale"
+                },
+                {
+                    "func_name": "cnnlGetTensorDescriptorPositionScaleAndOffset"
+                },
+                {
+                    "func_name": "cnnlSetTensorDescriptor"
+                },
+                {
+                    "func_name": "cnnlSetTensorDescriptorEx"
+                },
+                {
+                    "func_name": "cnnlSetTensorDescriptorPosition"
+                },
+                {
+                    "func_name": "cnnlSetTensorDescriptorPositionAndScale"
+                },
+                {
+                    "func_name": "cnnlSetTensorDescriptorPositionScaleAndOffset"
+                },
+                {
+                    "func_name": "cnrtCastDataType"
+                },
+                {
+                    "func_name": "cnrtCastDataType_V2"
+                },
+                {
+                    "func_name": "cnrtDeviceGetAttribute"
+                },
+                {
+                    "func_name": "cnrtGetDevice"
+                },
+                {
+                    "func_name": "cnrtGetLastError"
+                },
+                {
+                    "func_name": "cnrtPointerGetAttributes"
+                }
+            ],
+            "trace": null
+        }
+    ],
+    "ipu_perf_events": [
+        "inst_executed",
+        "inst_cache_miss",
+        "scalar_inst_executed",
+        "alu_cycles",
+        "read_bytes",
+        "write_bytes",
+        "csimd_pre_cycles",
+        "csimd_post_cycles",
+        "lt_cycles",
+        "ctram_io_inst_read_bytes",
+        "ctram_io_inst_write_bytes",
+        "ctram_mv_inst_read_bytes",
+        "ctram_mv_inst_write_bytes",
+        "ltram_multicast_bytes",
+        "ltram_unicast_bytes"
+    ],
+    "mpu_perf_events": [
+        "inst_executed",
+        "inst_cache_miss",
+        "scalar_inst_executed",
+        "alu_cycles",
+        "read_bytes",
+        "write_bytes"
+    ],
+    "pmu_events": [
+        "aps__write_bytes",
+        "aps__read_bytes",
+        "aps__write_bw",
+        "aps__read_bw",
+        "dis__write_bytes",
+        "dis__read_bytes",
+        "dis__write_bw",
+        "dis__read_bw",
+        "dram__bandwidth_utils",
+        "dram__footprint",
+        "dram__read_bytes",
+        "dram__read_bw",
+        "dram__read_bw_utils",
+        "dram__write_bytes",
+        "dram__write_bw",
+        "dram__write_bw_utils",
+        "dpu__write_bytes",
+        "dpu__read_bytes",
+        "dpu__write_bw",
+        "dpu__read_bw",
+        "g2d__write_bytes",
+        "g2d__read_bytes",
+        "g2d__write_bw",
+        "g2d__read_bw",
+        "gdc__write_bytes",
+        "gdc__read_bytes",
+        "gdc__write_bw",
+        "gdc__read_bw",
+        "gdmac__write_bytes",
+        "gdmac__read_bytes",
+        "gdmac__write_bw",
+        "gdmac__read_bw",
+        "jpu__jpu_utils",
+        "jpu__read_bytes",
+        "jpu__read_bw",
+        "jpu__tlb_read_access",
+        "jpu__tlb_read_miss",
+        "jpu__tlb_write_access",
+        "jpu__tlb_write_miss",
+        "jpu__write_bytes",
+        "jpu__write_bw",
+        "llc__hit_rate",
+        "llc__read_bytes",
+        "llc__read_bw",
+        "llc__tagram_hit",
+        "llc__tagram_miss",
+        "llc__write_bytes",
+        "llc__write_bw",
+        "mlu__power",
+        "mlu__temperature",
+        "mlu__cpu_utils",
+        "mlulink__read_bytes",
+        "mlulink__read_bw",
+        "mlulink__write_bytes",
+        "mlulink__write_bw",
+        "ofu__read_bytes",
+        "ofu__read_bw",
+        "ofu__write_bytes",
+        "ofu__write_bw",
+        "pcie__read_bytes",
+        "pcie__read_bw",
+        "pcie__write_bytes",
+        "pcie__write_bw",
+        "pyramid__read_bytes",
+        "pyramid__read_bw",
+        "pyramid__write_bytes",
+        "pyramid__write_bw",
+        "scaler__read_bytes",
+        "scaler__read_bw",
+        "scaler__scaler_utils",
+        "scaler__write_bytes",
+        "scaler__write_bw",
+        "tdnr__write_bytes",
+        "tdnr__read_bytes",
+        "tdnr__write_bw",
+        "tdnr__read_bw",
+        "tp_cdma__read_bytes",
+        "tp_cdma__read_bw",
+        "tp_cdma__write_bytes",
+        "tp_cdma__write_bw",
+        "tp_cluster__bandwidth_utils",
+        "tp_cluster__read_bytes",
+        "tp_cluster__read_bw",
+        "tp_cluster__write_bytes",
+        "tp_cluster__write_bw",
+        "tp_core__alu_cycles",
+        "tp_core__alu_utils",
+        "tp_core__core_utils",
+        "tp_core__ct_cycles",
+        "tp_core__ct_utils",
+        "tp_core__csimd_post_cycles",
+        "tp_core__csimd_post_utils",
+        "tp_core__io_inst_cycles",
+        "tp_core__io_stream_utils",
+        "tp_core__io0_inst_cycles",
+        "tp_core__io0_stream_utils",
+        "tp_core__io1_inst_cycles",
+        "tp_core__io1_stream_utils",
+        "tp_core__lt_cycles",
+        "tp_core__lt_utils",
+        "tp_core__read_bytes",
+        "tp_core__read_bw",
+        "tp_core__tlb_read_access",
+        "tp_core__tlb_read_miss",
+        "tp_core__tlb_write_access",
+        "tp_core__tlb_write_miss",
+        "tp_core__write_bytes",
+        "tp_core__write_bw",
+        "tp_core__mv_inst_cycles",
+        "tp_core__mv_stream_utils",
+        "tp_memcore__io_inst_cycles",
+        "tp_memcore__io_stream_utils",
+        "tp_memcore__io0_inst_cycles",
+        "tp_memcore__io0_stream_utils",
+        "tp_memcore__io1_inst_cycles",
+        "tp_memcore__io1_stream_utils",
+        "tp_memcore__read_bytes",
+        "tp_memcore__read_bw",
+        "tp_memcore__tlb_read_access",
+        "tp_memcore__tlb_read_miss",
+        "tp_memcore__tlb_write_access",
+        "tp_memcore__tlb_write_miss",
+        "tp_memcore__write_bytes",
+        "tp_memcore__write_bw",
+        "vdec__write_bytes",
+        "vdec__read_bytes",
+        "vdec__write_bw",
+        "vdec__read_bw",
+        "venc__write_bytes",
+        "venc__read_bytes",
+        "venc__write_bw",
+        "venc__read_bw",
+        "vgu__read_bytes",
+        "vgu__read_bw",
+        "vgu__write_bytes",
+        "vgu__write_bw",
+        "vi__read_bytes",
+        "vi__read_bw",
+        "vi__write_bytes",
+        "vi__write_bw",
+        "voproc__read_bytes",
+        "voproc__read_bw",
+        "voproc__write_bytes",
+        "voproc__write_bw",
+        "vpps__read_bytes",
+        "vpps__read_bw",
+        "vpps__write_bytes",
+        "vpps__write_bw",
+        "vpu__read_bytes",
+        "vpu__read_bw",
+        "vpu__write_bytes",
+        "vpu__write_bw",
+        "vpu__vpu_utils"
+    ],
+    "tnc_perf_events": [
+        "read_bytes",
+        "write_bytes"
+    ]
+}
